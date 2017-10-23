@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intelligent Reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="ml.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body onload="init();">
+
+
+<div class="jumbotron text-center">
+    <h2>"Machine learning approach to display texts at reader specific pace"</h2>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-12" id="textdiv" onclick="next();"
+             style="height:300px;width: 60%;background:rgba(0,0,0,0.1);">
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    var t;
+    var tprev;
+    var sentenceData = new Array();
+    var readingtime = new Array();
+
+
+    var text = "Harry Potter is a series of fantasy novels written by British author J K Rowling. The novels chronicle the life of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry. The main story arc concerns Harry's struggle against Lord Voldemort, a dark wizard who intends to become immortal, overthrow the wizard governing body known as the Ministry of Magic, and subjugate all wizards and muggles, a reference term that means non-magical people. Since the release of the first novel, Harry Potter and the Philosopher's Stone, on 26 June 1997, the books have found immense popularity, critical acclaim and commercial success worldwide. They have attracted a wide adult audience as well as younger readers, and are often considered cornerstones of modern young adult literature.[2] The series has also had its share of criticism, including concern about the increasingly dark tone as the series progressed, as well as the often gruesome and graphic violence it depicts. As of May 2013, the books have sold more than 500 million copies worldwide, making them the best-selling book series in history, and have been translated into seventy-three languages.[3][4] The last four books consecutively set records as the fastest-selling books in history, with the final instalment selling roughly eleven million copies in the United States within twenty-four hours of its release The series was originally published in English by two major publishers, Bloomsbury in the United Kingdom and Scholastic Press in the United States. A play, Harry Potter and the Cursed Child, based on a story co-written by Rowling, premiered in London on 30 July 2016 at the Palace Theatre, and its script was published by Little, Brown. The original seven books were adapted into an eight-part film series by Warner Bros. Pictures, which has become the second highest-grossing film series of all time as of August 2015. In 2016, the total value of the Harry Potter franchise was estimated at $25 billion,[5] making Harry Potter one of the highest-grossing media franchises of all time. When the first novel of the series, Harry Potter and the Philosopher's Stone (published in America and other countries as Harry Potter and the Sorcerer's Stone) opens, it is apparent that some significant event has taken place in the Wizarding World – an event so very remarkable, even Muggles (non-magical people) notice signs of it. The full background to this event and Harry Potter's past is revealed gradually through the series. After the introductory chapter, the book leaps forward to a time shortly before Harry Potter's eleventh birthday, and it is at this point that his magical background begins to be revealed. Despite Harry's aunt and uncle's desperate prevention of Harry gleaning about his powers,[15] their efforts are in vain. Harry meets a half-giant, Rubeus Hagrid, who is also his first contact with the Wizarding World. Hagrid reveals himself to be the Keeper of Keys and Grounds at Hogwarts as well as some of Harry's history.[15] Harry learns that, as a baby, he witnessed his parents' murder by the power-obsessed dark wizard Lord Voldemort, who subsequently attempted to kill him as well.[15] Instead, the unexpected happened: Harry survived with only a lightning-shaped scar on his forehead as a memento of the attack and Voldemort disappeared soon afterwards, gravely weakened by his own rebounding curse. As its inadvertent saviour from Voldemort's reign of terror, Harry has become a living legend in the Wizarding World. However, at the orders of the venerable and well-known wizard Albus Dumbledore, the orphaned Harry had been placed in the home of his unpleasant Muggle relatives, the Dursleys, who have kept him safe but treated him poorly, including confining him to a cupboard without meals and torturing him like he is their servant. Hagrid then officially invites Harry to attend Hogwarts School of Witchcraft and Wizardry, a famous magic school in Scotland that educates young teenagers on their magical development for seven years, from age eleven to seventeen. With Hagrid's help, Harry prepares for and undertakes his first year of study at Hogwarts. As Harry begins to explore the magical world, the reader is introduced to many of the primary locations used throughout the series. Harry meets most of the main characters and gains his two closest friends: Ron Weasley, a fun-loving member of an ancient, large, happy, but poor wizarding family, and Hermione Granger, a gifted, bright, and hardworking witch of non-magical parentage.[15][16] Harry also encounters the school's potions master, Severus Snape, who displays a conspicuously deep and abiding dislike for him, the rich brat Draco Malfoy whom he quickly makes enemies with, and the Defence Against the Dark Arts teacher, Quirinus Quirrell, who later turns out to be allied with Lord Voldemort. He also discovers a talent of flying on broomsticks and is recruited for his house's Quidditch team, a sport in the wizarding world where players fly on broomsticks. The first book concludes with Harry's second confrontation with Lord Voldemort, who, in his quest to regain a body, yearns to gain the power of the Philosopher's Stone, a substance that bestows everlasting life and turns any metal into pure gold.[15] The series continues with Harry Potter and the Chamber of Secrets, describing Harry's second year at Hogwarts. He and his friends investigate a 50-year-old mystery that appears uncannily related to recent sinister events at the school. Ron's younger sister, Ginny Weasley, enrolls in her first year at Hogwarts, and finds an old notebook in her belongings which turns out to be an alumnus's diary, Tom Marvolo Riddle, later revealed to be Voldemort's younger self, who is bent on ridding the school of mudbloods, a derogatory term describing wizards and witches of non-magical parentage. The memory of Tom Riddle resides inside of the diary and when Ginny begins to confide in the diary, Voldemort is able to possess her. Through the diary, Ginny acts on Voldemort's orders and unconsciously opens the Chamber of Secrets, unleashing an ancient monster, later revealed to be a basilisk, which begins attacking students at Hogwarts. It kills those who make direct eye contact with it and petrifies those who look at it indirectly. The book also introduces a new Defence Against the Dark Arts teacher, Gilderoy Lockhart, a highly cheerful, self-conceited wizard with a pretentious facade, later turning out to be a fraud. Harry discovers that prejudice exists in the Wizarding World through delving into the school's history, and learns that Voldemort's reign of terror was often directed at wizards and witches who were descended from Muggles. Harry also learns about the innate ability of his to speak the snake language Parseltongue is rare and often associated with the Dark Arts. When Hermione is attacked and petrified, Harry and Ron finally piece together the puzzles and unlock the Chamber of Secrets, with Harry destroying the diary for good and saving Ginny, and also destroying a part of Voldemort's soul. The end of the book reveals Lucius Malfoy, Draco's father and rival of Ron and Ginny's father, to be the culprit who slipped the book into Ginny's belongings and introduced the diary into Hogwarts. The third novel, Harry Potter and the Prisoner of Azkaban, follows Harry in his third year of magical education. It is the only book in the series which does not feature Lord Voldemort in any form. Instead, Harry must deal with the knowledge that he has been targeted by Sirius Black, his father's best friend, and, according to the Wizarding World, an escaped mass murderer who assisted in the murder of Harry's parents. As Harry struggles with his reaction to the dementors – dark creatures with the power to devour a human soul and feed on despair – which are ostensibly protecting the school, he reaches out to Remus Lupin, a Defence Against the Dark Arts teacher who is eventually revealed to be a werewolf. Lupin teaches Harry defensive measures which are well above the level of magic generally executed by people his age. Harry comes to know that both Lupin and Black were best friends of his father and that Black was framed by their fourth friend, Peter Pettigrew, who had been hiding Ron's pet rat, Scabbers.[17] In this book, a recurring theme throughout the series is emphasised – in every book there is a new Defence Against the Dark Arts teacher, none of whom lasts more than one school year.";
+
+    var n = -1;
+    var sentences = text.split(".");
+    var sentence;
+
+    var auto = false;
+
+    function init() {
+        t = 0;
+        textdiv.innerHTML = "I will display a text sentence by sentence upon your mouse clicks in the grey box. After a while, the grey box will disappear, meaning that I have learned the right reading pace for you and I can decide when to skip to the next sentence, without waiting for your clicks. ";
+
+    }
+    function sentenceStats(str) {
+        var words = str.split(" ");
+        var nWords = words.length;
+        var avgWordLength = 0;
+        var maxWordLength = 0;
+        var minWordLength = 999;
+
+        for (var word = 0; word < nWords.length; word++) {
+            avgWordLength += words[word].length;
+            if (words[word].length > maxWordLength) {
+                maxWordLength = words[word].length;
+            }
+            if (words[word].length < minWordLength) {
+                minWordLength = words[word].length;
+            }
+        }
+        avgWordLength /= nWords;
+        var reg = new RegExp("[.,;:?-]+", "g");
+        var nSigns = str.split(reg).length;
+        return [nWords, avgWordLength, maxWordLength, minWordLength, nSigns]
+    }
+
+
+    function next() {
+        if (auto) {
+            sentence = sentences[n];
+            var x = sentenceStats(sentence);
+
+            var predictTime = model.predict(x);
+            setTimeout(next, predictTime)
+        } else if (n == 10) {
+            model = new Regression(LeastSquares);
+
+            var X = array2mat(sentenceData);
+            var Y = readingtime;
+            model.train(X, Y);
+
+            auto = true;
+
+            textdiv.style.background = 'DarkSeaGreen';
+
+            setTimeout(next, 0)
+
+        } else if (n >= 0) {
+            sentenceData.push(sentenceStats(sentence));
+            tprev = t;
+            t = (new Date()).getTime();
+            readingtime.push(t - tprev)
+        } else {
+            t = (new Date()).getTime();
+
+        }
+        n++;
+        sentence = sentences[n];
+        textdiv.innerHTML = sentences[n] + ".";
+
+    }
+
+
+</script>
+
+</body>
+</html>
